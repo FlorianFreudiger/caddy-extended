@@ -3,6 +3,9 @@ name: Create and publish Docker image
 on:
   push:
     branches: ['main']
+    paths:
+      - .github/workflows/**
+      - Dockerfile
   schedule:
     # Weekly time picked randomly: "At 03:52 on Wednesday."
     - cron: '52 3 * * 3'
