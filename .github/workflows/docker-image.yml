@@ -13,6 +13,9 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
+  PLATFORMS: linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v6
+  # Keep at least platform count of latest versions
+  KEEP_LAST: 4
 
 jobs:
   update-latest-image:
@@ -47,7 +50,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
-          platforms: linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v6
+          platforms: ${{ env.PLATFORMS }}
           push: true
           provenance: false
           tags: ${{ steps.meta.outputs.tags }}
@@ -59,5 +62,5 @@ jobs:
         with: 
           package-name: ${{ github.event.repository.name }}
           package-type: 'container'
-          min-versions-to-keep: 4
+          min-versions-to-keep: ${{ env.KEEP_LAST }}
           delete-only-untagged-versions: 'true'
