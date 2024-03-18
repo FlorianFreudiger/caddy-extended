@@ -15,7 +15,7 @@ env:
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
-  build-and-push-image:
+  update-latest-image:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -53,3 +53,11 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           annotations: ${{ steps.meta.outputs.annotations }}
+
+      - name: Delete old package versions
+        uses: actions/delete-package-versions@v5
+        with: 
+          package-name: ${{ github.event.repository.name }}
+          package-type: 'container'
+          min-versions-to-keep: 4
+          delete-only-untagged-versions: 'true'
