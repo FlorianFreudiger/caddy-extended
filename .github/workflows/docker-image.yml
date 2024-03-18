@@ -3,6 +3,9 @@ name: Create and publish Docker image
 on:
   push:
     branches: ['main']
+  schedule:
+    # Weekly time picked randomly: "At 03:52 on Wednesday."
+    - cron: '52 3 * * 3'
 
 env:
   REGISTRY: ghcr.io
@@ -30,6 +33,7 @@ jobs:
           tags: |
             # set latest tag for default branch
             type=raw,value=latest,enable={{is_default_branch}}
+            type=schedule,value=latest
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
