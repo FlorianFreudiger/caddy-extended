@@ -9,6 +9,7 @@ on:
   schedule:
     # Weekly time picked randomly: "At 03:52 on Wednesday."
     - cron: '52 3 * * 3'
+  workflow_dispatch:
 
 env:
   REGISTRY: ghcr.io
