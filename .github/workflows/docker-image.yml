@@ -8,7 +8,7 @@ on:
       - Dockerfile
   schedule:
     # Weekly time picked randomly: "At 03:52 on Wednesday."
-    - cron: '52 3 * * 3'
+    - cron: '52 3 11 * *'
   workflow_dispatch:
 
 env:
