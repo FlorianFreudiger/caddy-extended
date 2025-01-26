@@ -4,6 +4,7 @@ Automatic [Caddy](https://caddyserver.com/) container image with some extra modu
 Extra modules:
 - https://github.com/caddyserver/cache-handler
 - https://github.com/caddy-dns/cloudflare
+- https://github.com/mholt/caddy-dynamicdns
 - https://github.com/pberkel/caddy-storage-redis
 - https://github.com/lucaslorentz/caddy-docker-proxy
 - https://github.com/tailscale/caddy-tailscale
