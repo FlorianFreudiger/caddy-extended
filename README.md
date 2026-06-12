@@ -5,6 +5,7 @@ Extra modules:
 - https://github.com/caddyserver/cache-handler
 - https://github.com/caddy-dns/cloudflare
 - https://github.com/mholt/caddy-dynamicdns
+  - Using commit from fork https://github.com/mathiasandresen/caddy-dynamicdns until dynamic_dns option with wildcard exclusion is supported upstream
 - https://github.com/pberkel/caddy-storage-redis
 - https://github.com/lucaslorentz/caddy-docker-proxy
 - https://github.com/tailscale/caddy-tailscale
